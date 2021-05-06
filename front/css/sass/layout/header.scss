@@ -1,0 +1,85 @@
+@import "../utils/functions";
+
+
+header {
+	height: 12vh;
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	// border: 1px solid red;
+	
+	figcaption {
+		width: 20%;
+		display: flex;
+		justify-content: center;
+		// border: 1px dashed black;
+		
+		a {	
+			img {
+				width: 100%;
+			}
+
+		}
+	}
+
+
+	.searchContainer {
+		width: 400px;
+		height: 35px;
+		margin: 0;
+		padding: 0 0 0 1%;
+		display: flex;
+		align-items: center;
+		background-color: color(bg);
+		// border: 1px dashed black;
+
+
+		input {
+			font-size: 18px;
+			width: 90%;
+			margin: 0;
+			background-color: color(bg);
+			border: none;
+			color: color(greyFont);
+		}
+
+		.searchIconContainer {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			text-align: right;
+			align-items: center;
+			
+			& .fa-search {
+				font-size: 20px;
+			}
+		}
+	}
+
+	nav {
+		width: 20%;
+		height: 35px;
+		margin: 0;
+		display: flex;
+		align-content: center;
+		
+		ul {
+			width: 100%;
+			list-style-type: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			margin: 0;
+
+			li {
+				width: 100%;
+				text-align: center;
+				font-size: 18px;
+			}
+		}
+	}
+}

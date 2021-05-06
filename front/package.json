@@ -1,0 +1,13 @@
+{
+	"name": "orinoco",
+	"version": "1.0.0",
+	"description": "Orinoco",
+	"main": "index.js",
+	"scripts": {
+	  "sass": "sass --watch ./css/sass/main.scss:./css/style.css --style expanded",
+	  "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed"
+	},
+	"browserslist": "last 4 versions",
+	"author": "lora",
+	"license": "ISC"
+  }

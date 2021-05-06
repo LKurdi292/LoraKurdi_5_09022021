@@ -1,0 +1,29 @@
+@import "../utils/functions";
+
+footer {
+	height: 5vh;
+	width: 100%;
+	background-color: color(lightPurple_bg);
+	position: fixed;
+	bottom: 0;
+	// border: 1px solid red;
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		width: 70%;
+		margin: 0 auto;
+		height: 100%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+
+		li {
+			margin: auto 1%;
+
+			a {
+				text-decoration: underline;
+			}
+		}
+	}
+}
