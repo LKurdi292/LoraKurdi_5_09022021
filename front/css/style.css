@@ -1,3 +1,4 @@
+@charset "UTF-8";
 header {
   height: 12vh;
   width: 70%;
@@ -181,11 +182,11 @@ div#primaryCarouselContainer #carouselContainer figure#carouselPics img {
 }
 
 /* Contenu principal - Les Produits */
-main {
+main#homepage {
   width: 70%;
   margin: 0 auto;
 }
-main #productsGeneralContainer {
+main#homepage #productsGeneralContainer {
   width: 100%;
   margin: 5% auto 6%;
   min-height: 40vh;
@@ -194,24 +195,24 @@ main #productsGeneralContainer {
   justify-content: space-between;
   align-items: center;
 }
-main #productsGeneralContainer .productContainer {
+main#homepage #productsGeneralContainer .productContainer {
   width: 250px;
   height: 325px;
   margin: 0 2%;
   border-radius: 15%;
   box-shadow: 0 1px 5px black;
 }
-main #productsGeneralContainer .productContainer:not(:last-child) {
+main#homepage #productsGeneralContainer .productContainer:not(:last-child) {
   margin-bottom: 3%;
 }
-main #productsGeneralContainer .productContainer a {
+main#homepage #productsGeneralContainer .productContainer a {
   display: block;
   width: 100%;
   height: 100%;
   cursor: pointer;
   position: relative;
 }
-main #productsGeneralContainer .productContainer a:hover::after {
+main#homepage #productsGeneralContainer .productContainer a:hover::after {
   content: "Voir le produit";
   text-decoration: none;
   position: absolute;
@@ -223,20 +224,20 @@ main #productsGeneralContainer .productContainer a:hover::after {
   color: white;
   background-color: black;
 }
-main #productsGeneralContainer .productContainer a figure {
+main#homepage #productsGeneralContainer .productContainer a figure {
   border-radius: 15% 15% 0 0;
   margin: 0;
   padding: 0;
   width: 100%;
   height: 70%;
 }
-main #productsGeneralContainer .productContainer a figure img {
+main#homepage #productsGeneralContainer .productContainer a figure img {
   border-radius: 15% 15% 0 0;
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-main #productsGeneralContainer .productContainer a .productDescription {
+main#homepage #productsGeneralContainer .productContainer a .home__description {
   margin: 0;
   color: #333333;
   height: 30%;
@@ -245,12 +246,166 @@ main #productsGeneralContainer .productContainer a .productDescription {
   font-size: 20px;
   border-radius: 0 0 15% 15%;
 }
-main #productsGeneralContainer .productContainer a .productDescription #name {
+main#homepage #productsGeneralContainer .productContainer a .home__description #home__name {
   margin: 20px 0 0 0;
 }
-main #productsGeneralContainer .productContainer a .productDescription #price {
+main#homepage #productsGeneralContainer .productContainer a .home__description #home__price {
   font-weight: bold;
   margin: 10px 0 0 0;
 }
+
+@font-face {
+  font-family: "roboto";
+  src: url(fonts/roboto/Roboto-Regular.ttf);
+}
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: "roboto";
+  color: #333333;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+main#productpage {
+  width: 70%;
+  margin: 3% auto 6%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid black;
+}
+
+/* Partie gauche de la page : image et description du produit */
+#imageAndDescription_container {
+  width: 50%;
+  margin: 0 0 0 3%;
+  border: 1px dashed red;
+}
+#imageAndDescription_container figure {
+  width: 85%;
+  height: 400px;
+  margin: 0 0 3em;
+  padding: 0;
+  border: 1px solid orange;
+}
+#imageAndDescription_container figure img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+#imageAndDescription_container .description {
+  min-height: 200px;
+}
+#imageAndDescription_container .description__title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0;
+}
+#imageAndDescription_container .description__text {
+  font-size: 18px;
+}
+
+/* Partie droite de la page: Nom, Prix, Sélection du vernis, Quantité, statut du stock, bouton d'ajout au panier */
+#titleAndOptions_container {
+  width: 50%;
+  height: 100%;
+  margin: 0 0 20px 3%;
+  border: 1px dashed green;
+}
+#titleAndOptions_container h1 {
+  font-size: 26px;
+}
+#titleAndOptions_container h2 {
+  font-size: 22px;
+}
+
+/* Selection des options de vernis */
+#varnishChoices_container {
+  display: flex;
+  margin: 35px 0;
+}
+#varnishChoices_container p {
+  font-size: 18px;
+  margin: 0 40px 0 0;
+}
+#varnishChoices_container select {
+  height: 50%;
+  width: 180px;
+  margin: auto 0;
+}
+
+/* Input de la quantité et boutons +/-  */
+.quantity {
+  display: flex;
+  align-items: center;
+  margin: 35px 0;
+}
+.quantity p {
+  font-size: 18px;
+  margin: 0 20px 0 0;
+}
+.quantity__control {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.quantity__control div {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  width: 30px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8px;
+}
+.quantity__control .greyBG {
+  background-color: #b6b6b6;
+}
+.quantity__control input {
+  height: 35px;
+  text-align: center;
+  width: 40px;
+  border: 1px solid #b6b6b6;
+}
+.quantity__control .less::after {
+  content: "-";
+}
+.quantity__control .more::after {
+  content: "+";
+}
+
+/* Statut des stocks */
+.stockStatus {
+  margin: 35px 0;
+}
+.stockStatus__container {
+  display: flex;
+  align-items: center;
+}
+.stockStatus__container .roundIndicator {
+  width: 12px;
+  height: 12px;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+}
+.stockStatus__container .green {
+  background-color: #00a900;
+}
+.stockStatus__container .red {
+  background-color: red;
+}
+.stockStatus__container p {
+  margin: 0;
+}
+
+/* Bouton Ajouter au Panier */
 
 /*# sourceMappingURL=style.css.map */

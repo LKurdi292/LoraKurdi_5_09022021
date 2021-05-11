@@ -62,13 +62,13 @@ function addLinkToProduct(element) {
 /* Fonction ajout de la description  */
 function addDescriptionToProduct(element) {
 	const divDescription  = document.createElement("div");
-	divDescription.classList.add("productDescription");
+	divDescription.classList.add("home__description");
 	const nameElement = document.createElement("p");
 	const priceElement = document.createElement("p");
 
 	/* Récupérer le nom et le prix du produit */
-	nameElement.id = "name";
-	priceElement.id = "price";
+	nameElement.id = "home__name";
+	priceElement.id = "home__price";
 	nameElement.innerText = element.name;
 	priceElement.innerText = element.price + " € TTC";
 	

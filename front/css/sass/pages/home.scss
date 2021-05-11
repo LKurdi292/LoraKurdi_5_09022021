@@ -80,7 +80,7 @@ div#primaryCarouselContainer {
 
 
 /* Contenu principal - Les Produits */
-main {
+main#homepage {
 	width: 70%;
 	margin: 0 auto;
 	// border: 1px dashed red;
@@ -141,7 +141,7 @@ main {
 					}
 				}
 	
-				.productDescription {
+				.home__description {
 					margin: 0;
 					color: color(font);
 					height: 30%;
@@ -151,11 +151,11 @@ main {
 					border-radius: 0 0 15% 15%;
 					// border: 1px solid blue;
 	
-					#name {
+					#home__name {
 						margin: 20px 0 0 0;
 					}
 	
-					#price {
+					#home__price {
 						font-weight: bold;
 						margin: 10px 0 0 0;
 					}

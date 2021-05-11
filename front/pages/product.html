@@ -26,27 +26,71 @@
 	<!-- Header commun -->
 	<header>
 		<figcaption>
-			<a href="#">
+			<a href="index.html">
 				<img src="../images/logo_orinoco.png" alt="logo d'Orinoco">
 			</a>
 		</figcaption>
 
 		<nav>
 			<ul>
-				<li><a title="Retour à l'accueil"><i class="fas fa-home"></i> Accueil</a></li>
-				<li><a><i class="fas fa-shopping-cart"></i> Panier</a></li>
+				<li><a href="index.html" title="Retour à l'accueil"><i class="fas fa-home"></i> Accueil</a></li>
+				<li><a title="Voir mon panier"><i class="fas fa-shopping-cart"></i> Panier</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<!-- Contenu principal -->
-	<main>
-	
+	<main id="productpage">
+		<div id="imageAndDescription_container">
+			<figure><img src="" alt=""></figure>
 
+			<div class="description">
+				<p class="description__title">Description</p>
+				<p class="description__text"></p>
+			</div>
+		</div>
 
+		<div id="titleAndOptions_container">
+			<h1 class="product__name"></h1>
+			<h2 class="product__price"></h2>
 
+			<div id="varnishChoices_container">
+				<p>Vernis</p>
+				<select name="varnishChoices" id="varnishChoices">
+					<option value="default" class="varnishOption">Choisir une option</option>
+				</select>
+			</div>
+
+			<div class="quantity">
+				<p>Quantité</p>
+				<div class="quantity__control">
+					<div class="less greyBG"></div>
+					<input type="text" class="quantity__number" value="0">
+					<div class="more greyBG"></div>
+				</div>
+			</div>
+
+			<div class="stockStatus">
+				<div class="stockStatus__container inStock">
+					<div class="roundIndicator green"></div>
+					<p>En stock</p>
+				</div>
+
+				<div class="stockStatus__container outOfStock">
+					<div class="roundIndicator red"></div>
+					<p>En rupture de stock</p>
+				</div>
+			</div>
+
+			<div class="cartButtonContainer">
+				<button id="addToCart">Ajouter au panier</button>
+			</div>
+		</div>
 
 	</main>
+
+
+
 
 	<!-- Footer commun -->
 	<footer>

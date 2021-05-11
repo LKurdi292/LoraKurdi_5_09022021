@@ -4,4 +4,8 @@ $colors: (
 	greyFont: darken(#EBEAED, 50%),
 	footer: #ECE4F4,
 	chevronBG: #23170C,
+	quantityBG: lighten(#696969, 30%),
+	inStockBg: lighten(green, 8%),
+	outOfStockBg: red,
+
 );

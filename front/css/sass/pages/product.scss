@@ -2,3 +2,177 @@
 @import "../base/base";
 
 
+main#productpage {
+	width: 70%;
+	margin: 3% auto 6%;
+	min-height: 50vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	border: 1px solid black;
+	
+}
+
+
+/* Partie gauche de la page : image et description du produit */
+#imageAndDescription_container {
+	width: 50%;
+	// max-height: 100%;
+	margin: 0 0 0 3%;
+	border: 1px dashed red;
+
+	figure {
+		width: 85%;
+		height: 400px;
+		margin: 0 0 3em;
+		padding: 0;
+		border: 1px solid orange;
+
+		img {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
+			// border: 1px dashed blue;
+		}
+	}
+
+	.description {
+		min-height: 200px;
+
+		&__title {
+			font-size: 20px;
+			font-weight: bold;
+			margin-top: 0;
+		}
+
+		&__text {
+			font-size: 18px;
+			
+		}
+	}
+}
+
+
+/* Partie droite de la page: Nom, Prix, Sélection du vernis, Quantité, statut du stock, bouton d'ajout au panier */
+#titleAndOptions_container {
+	width: 50%;
+	height: 100%;
+	margin: 0 0 20px 3%;
+	border: 1px dashed green;
+
+	h1 {
+		font-size: 26px;
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+}
+
+
+/* Selection des options de vernis */
+#varnishChoices_container {
+	display: flex;
+	margin: 35px 0;
+	// border: 1px solid violet;
+	
+	p {
+		font-size: 18px;
+		margin: 0 40px 0 0;
+	}
+
+	select {
+		height: 50%;
+		width: 180px;
+		margin: auto 0;
+	}
+}
+
+
+
+/* Input de la quantité et boutons +/-  */
+.quantity {
+	display: flex;
+	align-items: center;
+	margin: 35px 0;
+	// border: 1px solid violet;
+
+	p {
+		font-size: 18px;
+		margin: 0 20px 0 0;
+	}
+
+	&__control {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		// border: 1px solid black;
+
+		div {
+			text-align: center;
+			cursor: pointer;
+			font-weight: bold;
+			color: white;
+			width: 30px;
+			height: 35px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 8px;
+		}
+		.greyBG {
+			background-color: color(quantityBG);
+		}
+
+		input {
+			height: 35px;
+			text-align: center;
+			width: 40px;
+			border: 1px solid color(quantityBG);
+		}
+
+		.less::after {
+			content: "-";
+		}
+
+		.more::after {
+			content: "+";
+		}
+	}
+}
+
+
+
+/* Statut des stocks */
+.stockStatus {
+	margin: 35px 0;
+
+	&__container {
+		display: flex;
+		align-items: center;
+
+		.roundIndicator {
+			width: 12px;
+			height: 12px;
+			margin: 0 10px 0 0;
+			border-radius: 50%;
+		}
+
+		.green {
+			background-color: color(inStockBg);
+		}
+
+		.red {
+			background-color: color(outOfStockBg);
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
+/* Bouton Ajouter au Panier */
+
+
+
