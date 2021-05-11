@@ -32,7 +32,7 @@ header {
 		padding: 0 0 0 1%;
 		display: flex;
 		align-items: center;
-		background-color: color(bg);
+		background-color: color(greyBG);
 		// border: 1px dashed black;
 
 
@@ -40,7 +40,7 @@ header {
 			font-size: 18px;
 			width: 90%;
 			margin: 0;
-			background-color: color(bg);
+			background-color: color(greyBG);
 			border: none;
 			color: color(greyFont);
 		}

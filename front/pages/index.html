@@ -8,17 +8,21 @@
 
 	<!-- favicon -->
 
-	<!-- CSS StyleSheet -->
+	<!-- CSS Stylesheets -->
 	<link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/all.min.css" type="text/css">
 	<link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/fontawesome.min.css" type="text/css">
 	<link rel="stylesheet" href="../css/style.css">
 
+
+	<!-- JS scripts -->
+	<script src="../js/home.js" defer></script>
 
 	<title>Orinoco - Accueil</title>
 
 </head>
 
 <body>
+	<!-- Header commun -->
 	<header>
 		<figcaption>
 			<a href="#">
@@ -35,49 +39,57 @@
 
 		<nav>
 			<ul>
-				<li><a>Accueil</a></li>
-				<li><a>Panier</a></li>
+				<li><a><i class="fas fa-home"></i> Accueil</a></li>
+				<li><a title="Voir mon panier"><i class="fas fa-shopping-cart"></i> Panier</a></li>
 			</ul>
 		</nav>
 	</header>
 	
-	<div id="carouselContainer">
-		<div id="carouselContainer_images">
 
-		</div>
-
-		<div id="carouselContainer_titles">
-			<h1>Des meubles en bois de chêne<br/>pour embellir chacune des pièces de son chez soi ! </h1>
-
-			<h2>Votre demeure est-elle suffisamment chaleureuse et accueillante?<br/>avec un meuble en bois de chêne c'est facile !</h2>
-
-			<h2>Fabrication 100% française<br/>De la taille du bois à la livraison de votre meuble en passant par son design, tous nos partenaires sont français !</h2>
+	<!-- Carousel - Accueil -->
+	<div id="primaryCarouselContainer">
+		<div id="carouselContainer">
 			
-			<h2>Notre bois de chêne est issu de forêts françaises<br/>gérées par nos experts de manière durable.</h2>
+			<div class="chevronsContainer">
 
-			<div class="buttonContainer">
-				<button class="button">Découvrir</button>
+				<div class="circleContainer">
+					<i class="fas fa-chevron-left"></i>
+				</div>
+
+
+				<div class="titlesContainer">
+					<h1>Des meubles en bois de chêne<br/>pour embellir chacune des pièces de son chez soi</h1>
+					
+					
+					<!-- <h2>Votre demeure est-elle suffisamment chaleureuse et accueillante?<br/>avec un meuble en bois de chêne c'est facile !</h2>
+					
+					<h2>Fabrication 100% française<br/>De la taille du bois à la livraison de votre meuble en passant par son design, tous nos partenaires sont français !</h2>
+					
+					<h2>Notre bois de chêne est issu de forêts françaises<br/>gérées par nos experts de manière durable.</h2>-->
+				</div>
+
+
+				<div class="circleContainer">
+					<i class="fas fa-chevron-right"></i>
+				</div>
 			</div>
+			
+			<figure id="carouselPics">
+				<img src="../images/carousel-1_forestbird.jpg" >
+			</figure>
 		</div>
-
 	</div>
 
-
+	<!-- Contenu principal -->
 	<main>
-		<h3>Découvrez nos meubles en chêne</h3>
+		<h2>Découvrez nos meubles en chêne</h2>
 		<h3>Livraison OFFERTE pour toute première commande avec le code PREMS</h3>
 
 		<div id="productsGeneralContainer">
-	
-
-
-
 		</div>
-
 	</main>
 
-
-
+	<!-- Footer commun -->
 	<footer>
 		<ul>
 			<li>&copy; Orinoco - 2021</li>
