@@ -5,7 +5,9 @@ $colors: (
 	footer: #ECE4F4,
 	chevronBG: #23170C,
 	quantityBG: lighten(#696969, 30%),
-	inStockBg: lighten(green, 8%),
-	outOfStockBg: red,
-
+	inStockBG: lighten(green, 8%),
+	outOfStockBG: red,
+	buttonBG: lighten(#9648a0, 10%),
+	confirmAdditionBG: #c2c929,
+	confirmAdditionFont: darken(#c2c929, 25%),
 );

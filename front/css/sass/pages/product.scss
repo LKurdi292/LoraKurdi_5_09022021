@@ -2,31 +2,60 @@
 @import "../base/base";
 
 
+/* Div dynamique de confirmation après ajout d'un article dans le panier */
+div.confirmAdditionToCart {
+	width: 70%;
+	margin: 0.5% auto 0;
+	height: 30px;
+	// display: none;
+	display: flex;
+	align-items: center;
+	background-color: color(confirmAdditionBG);
+	border: 1px solid color(confirmAdditionBG);
+	border-radius: 3px;
+
+	.fa-check {
+		font-size: 15px;
+		margin: 0 10px;
+		color: color(confirmAdditionFont);
+	}
+
+	p {
+		margin: 0;
+		font-style: italic;
+		// font-weight: bold;
+		color: color(confirmAdditionFont);
+	}
+}
+
+
+
 main#productpage {
 	width: 70%;
-	margin: 3% auto 6%;
+	margin: 1.5% auto 6%;
 	min-height: 50vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	border: 1px solid black;
+	// border: 1px solid black;
 	
 }
+
+
 
 
 /* Partie gauche de la page : image et description du produit */
 #imageAndDescription_container {
 	width: 50%;
-	// max-height: 100%;
-	margin: 0 0 0 3%;
-	border: 1px dashed red;
+	margin: 0;
+	// border: 1px dashed red;
 
 	figure {
 		width: 85%;
 		height: 400px;
 		margin: 0 0 3em;
 		padding: 0;
-		border: 1px solid orange;
+		// border: 1px solid orange;
 
 		img {
 			object-fit: cover;
@@ -47,7 +76,7 @@ main#productpage {
 
 		&__text {
 			font-size: 18px;
-			
+			text-align: justify;
 		}
 	}
 }
@@ -56,15 +85,16 @@ main#productpage {
 /* Partie droite de la page: Nom, Prix, Sélection du vernis, Quantité, statut du stock, bouton d'ajout au panier */
 #titleAndOptions_container {
 	width: 50%;
-	height: 100%;
+	height: 400px;
 	margin: 0 0 20px 3%;
-	border: 1px dashed green;
+	// border: 1px dashed green;
 
-	h1 {
-		font-size: 26px;
+	h1.product__name {
+		font-size: 24px;
+		margin-top: 0;
 	}
 
-	h2 {
+	h2.product__price {
 		font-size: 22px;
 	}
 }
@@ -82,6 +112,7 @@ main#productpage {
 	}
 
 	select {
+		color: color(font);
 		height: 50%;
 		width: 180px;
 		margin: auto 0;
@@ -150,29 +181,44 @@ main#productpage {
 	&__container {
 		display: flex;
 		align-items: center;
-
 		.roundIndicator {
 			width: 12px;
 			height: 12px;
 			margin: 0 10px 0 0;
 			border-radius: 50%;
 		}
-
 		.green {
-			background-color: color(inStockBg);
+			background-color: color(inStockBG);
 		}
-
 		.red {
-			background-color: color(outOfStockBg);
+			background-color: color(outOfStockBG);
 		}
-
 		p {
 			margin: 0;
 		}
 	}
 }
 
-/* Bouton Ajouter au Panier */
 
+/* Bouton Ajouter au Panier */
+.buttonContainer {
+	width: 350px;
+	height: 50px;
+	margin: 50px 0 0 0;
+	border-radius: 3px;
+	// border: 1px solid black;
+	
+	button {
+		border-radius: 3px;
+		cursor: pointer;
+		background-color: color(buttonBG);
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		font-size: 24px;
+		color: white;
+		border: none;
+	}
+}
 
 

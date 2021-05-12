@@ -270,28 +270,47 @@ a {
   text-decoration: none;
 }
 
+/* Div dynamique de confirmation après ajout d'un article dans le panier */
+div.confirmAdditionToCart {
+  width: 70%;
+  margin: 0.5% auto 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background-color: #c2c929;
+  border: 1px solid #c2c929;
+  border-radius: 3px;
+}
+div.confirmAdditionToCart .fa-check {
+  font-size: 15px;
+  margin: 0 10px;
+  color: #5c5f13;
+}
+div.confirmAdditionToCart p {
+  margin: 0;
+  font-style: italic;
+  color: #5c5f13;
+}
+
 main#productpage {
   width: 70%;
-  margin: 3% auto 6%;
+  margin: 1.5% auto 6%;
   min-height: 50vh;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border: 1px solid black;
 }
 
 /* Partie gauche de la page : image et description du produit */
 #imageAndDescription_container {
   width: 50%;
-  margin: 0 0 0 3%;
-  border: 1px dashed red;
+  margin: 0;
 }
 #imageAndDescription_container figure {
   width: 85%;
   height: 400px;
   margin: 0 0 3em;
   padding: 0;
-  border: 1px solid orange;
 }
 #imageAndDescription_container figure img {
   object-fit: cover;
@@ -308,19 +327,20 @@ main#productpage {
 }
 #imageAndDescription_container .description__text {
   font-size: 18px;
+  text-align: justify;
 }
 
 /* Partie droite de la page: Nom, Prix, Sélection du vernis, Quantité, statut du stock, bouton d'ajout au panier */
 #titleAndOptions_container {
   width: 50%;
-  height: 100%;
+  height: 400px;
   margin: 0 0 20px 3%;
-  border: 1px dashed green;
 }
-#titleAndOptions_container h1 {
-  font-size: 26px;
+#titleAndOptions_container h1.product__name {
+  font-size: 24px;
+  margin-top: 0;
 }
-#titleAndOptions_container h2 {
+#titleAndOptions_container h2.product__price {
   font-size: 22px;
 }
 
@@ -334,6 +354,7 @@ main#productpage {
   margin: 0 40px 0 0;
 }
 #varnishChoices_container select {
+  color: #333333;
   height: 50%;
   width: 180px;
   margin: auto 0;
@@ -407,5 +428,22 @@ main#productpage {
 }
 
 /* Bouton Ajouter au Panier */
+.buttonContainer {
+  width: 350px;
+  height: 50px;
+  margin: 50px 0 0 0;
+  border-radius: 3px;
+}
+.buttonContainer button {
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #af62b9;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  border: none;
+}
 
 /*# sourceMappingURL=style.css.map */
