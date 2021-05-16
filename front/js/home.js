@@ -80,3 +80,24 @@ function addDescriptionToProduct(element) {
 }
 
 
+/* Au retour sur la page d'accueil, après avoir ajouté des articles dans le panier pour la suite de la commande */
+
+	// Ajout d'une parenthèse *nombre d'articles* face à 'Panier', à partir des info sessionStorage
+let parentheses = document.createElement('p');
+document.getElementsByTagName('ul')[0].appendChild(parentheses);
+
+
+if (sessionStorage.nbArticles) {
+	nbArticles = JSON.parse(sessionStorage.nbArticles);
+	parentheses.textContent = "("+nbArticles+")";
+	parentheses.display = 'block';
+	
+	// Modif du lien panier dans le header
+	panierLiElement = document.querySelectorAll('li > a')[1];
+	panierLiElement.setAttribute('title', 'Voir mon panier');
+	panierLiElement.setAttribute('href', './cart.html');
+
+} else {
+	// Panier vide = première visite sur la page
+	parentheses.display ='none';
+}

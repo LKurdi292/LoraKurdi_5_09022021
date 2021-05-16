@@ -8,6 +8,9 @@ $colors: (
 	inStockBG: lighten(green, 8%),
 	outOfStockBG: red,
 	buttonBG: lighten(#9648a0, 10%),
-	confirmAdditionBG: #c2c929,
-	confirmAdditionFont: darken(#c2c929, 25%),
+	heartBG: lighten(#9648a0, 20%),
+	confirmAdditionBG: #dff0d8,
+	confirmAdditionFont: #3c763d,
+	confirmAdditionBorder: #d6e9c6,
+	missingInformation: #DB2819,
 );

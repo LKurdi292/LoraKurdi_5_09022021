@@ -29,14 +29,17 @@ div#primaryCarouselContainer {
 	
 			.titlesContainer {
 				max-height: 100%;
+				max-width: 100%;
 				// border: 1px solid green;
 
 				h1 {
+					max-width: 100vh;
 					text-align: center;
 					color: white;
 					letter-spacing: 0.15em;
 					margin: 0;
 					line-height: 260%;
+
 				}
 			}
 
@@ -70,9 +73,9 @@ div#primaryCarouselContainer {
 			display: flex;
 			
 			img {
-				width: 100%;
+				max-width: 100%;
+				height: auto;
 				object-fit: cover;
-				opacity: 0.8;
 			}
 		}
 	}
@@ -84,6 +87,10 @@ main#homepage {
 	width: 70%;
 	margin: 0 auto;
 	// border: 1px dashed red;
+
+	h2 {
+		width: 50vh;
+	}
 
 	#productsGeneralContainer {
 		width: 100%;

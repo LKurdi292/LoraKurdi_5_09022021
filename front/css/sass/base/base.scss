@@ -16,4 +16,7 @@ body {
 a {
 	cursor: pointer;
 	text-decoration: none;
+	&:visited {
+		color: color(font);
+	}
 }

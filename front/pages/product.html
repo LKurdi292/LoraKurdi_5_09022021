@@ -34,25 +34,43 @@
 		<nav>
 			<ul>
 				<li><a href="index.html" title="Retour à l'accueil"><i class="fas fa-home"></i> Accueil</a></li>
-				<li><a title="Voir mon panier"><i class="fas fa-shopping-cart"></i> Panier</a></li>
+				<li><a title="Voir mon panier" href="cart.html"><i class="fas fa-shopping-cart"></i> Panier</a></li>
 			</ul>
 		</nav>
 	</header>
 
-	<!-- Div dynamique: L'article a bien été ajouté au panier -->
+	<!-- Div à affichage dynamique: L'article a bien été ajouté au panier -->
 	<div class="confirmAdditionToCart">
 		<i class="fas fa-check"></i>
 		<p>L'article a bien été ajouté au panier</p>
 	</div>
 
+	<!-- Div Retour aux résultats = page d'accueil -->
+	<div class="back">
+		<a href="index.html" title="Retour aux résultats">
+			<i  class="fas fa-arrow-left"></i>
+		</a>
+		<p>Retour aux résultats</p>
+	</div>
 
 
+
+	
 	<!-- Contenu principal -->
 	<main id="productpage">
 
 		<!-- Partie gauche de la page: Image et Description -->
 		<div id="imageAndDescription_container">
-			<figure><img src="" alt=""></figure>
+			<figure>
+				<img src="" alt="">
+
+				<div class="heartContainer">
+					<a title="Ajouter à mes favoris">
+						<i class="far fa-heart"></i>
+					</a>
+				
+				</div>
+			</figure>
 
 			<div class="description">
 				<p class="description__title">Description</p>
@@ -68,7 +86,7 @@
 			<!-- Choix du vernis -->
 			<div id="varnishChoices_container">
 				<p>Vernis</p>
-				<select name="varnishChoices" id="varnishChoices">
+				<select name="varnishChoices" id="varnishChoices" title="Choisir un vernis">
 					<option value="default" class="varnishOption">Choisir une option</option>
 				</select>
 			</div>
@@ -77,9 +95,9 @@
 			<div class="quantity">
 				<p>Quantité</p>
 				<div class="quantity__control">
-					<div class="less greyBG"></div>
-					<input type="text" class="quantity__number" value="0">
-					<div class="more greyBG"></div>
+					<div class="less greyBG" title="moins"></div>
+					<input type="text" class="quantity__number" value="" placeholder="0" alt="Entrer une quantité">
+					<div class="more greyBG" title="plus"></div>
 				</div>
 			</div>
 
@@ -98,7 +116,7 @@
 
 			<!-- Bouton d'ajout au panier -->
 			<div class="buttonContainer">
-				<button id="addToCartButton">Ajouter au panier</button>
+				<button id="addToCartButton" title="Ajouter au panier">Ajouter au panier</button>
 			</div>
 		</div>
 
