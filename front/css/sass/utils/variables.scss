@@ -12,5 +12,6 @@ $colors: (
 	confirmAdditionBG: #dff0d8,
 	confirmAdditionFont: #3c763d,
 	confirmAdditionBorder: #d6e9c6,
-	missingInformation: #DB2819,
+	cartHeaderBG: lighten(black, 80%),
+	cartHeaderBorder: lighten(black, 70%),
 );

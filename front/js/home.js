@@ -1,4 +1,9 @@
-/* Récupération de tous les produits depuis l'API */
+/************* Création d'un tableau pour avoir l'équivalence id prix à récupérer plus tard pour la page panier *********************/
+
+let idNamePriceEquivalence = [];
+
+
+/**************** Récupération de tous les produits depuis l'API ***************/
 
 fetch('http://localhost:3000/api/furniture')
 .then(function(res) {
@@ -7,18 +12,32 @@ fetch('http://localhost:3000/api/furniture')
 	}
 })
 .then (function (arrayAllProducts) {
+
 	/* Création d'une nouvelle div par produit */
 	insertNewProduct(arrayAllProducts);
+
+	/* Remplissage du tableau d'équivalence id/prix */
+	fillidNamePriceEquivalenceArray(arrayAllProducts);
+	sessionStorage.idNamePriceEquivalence = JSON.stringify(idNamePriceEquivalence);
+	console.log(idNamePriceEquivalence);
 })
 .catch (function(err) {
 	console.log(err);
 });
 
 
+/******************** Fonction remplissage du tableau équivalence id/name/prix ****/
+function fillidNamePriceEquivalenceArray(array) {
+	array.forEach((element) => {
+		idNamePriceEquivalence.push({id : element._id, name: element.name, price : element.price});
+	});
+}
 
-/* Creation d'une nouvelle div par produit, dans le main la page d'acceuil */
+
+
+/****************** Creation d'une nouvelle div par produit, dans le main la page d'acceuil *************/
 function insertNewProduct(array) {
-	array.forEach((element, i) => {
+	array.forEach((element) => {
 		/* Création d'une div Produit */
 		const newDivProduct = document.createElement("div");
 		newDivProduct.classList.add("productContainer");
@@ -89,7 +108,7 @@ document.getElementsByTagName('ul')[0].appendChild(parentheses);
 
 if (sessionStorage.nbArticles) {
 	nbArticles = JSON.parse(sessionStorage.nbArticles);
-	parentheses.textContent = "("+nbArticles+")";
+	parentheses.textContent = "(" + nbArticles + ")";
 	parentheses.display = 'block';
 	
 	// Modif du lien panier dans le header

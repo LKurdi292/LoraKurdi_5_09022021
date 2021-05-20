@@ -170,44 +170,6 @@ main#productpage {
 		font-size: 18px;
 		margin: 0 20px 0 0;
 	}
-
-	&__control {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		// border: 1px solid black;
-
-		div {
-			text-align: center;
-			cursor: pointer;
-			font-weight: bold;
-			color: white;
-			width: 30px;
-			height: 35px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin: 0 8px;
-		}
-		.greyBG {
-			background-color: color(quantityBG);
-		}
-
-		input {
-			height: 35px;
-			text-align: center;
-			width: 40px;
-			border: 1px solid color(quantityBG);
-		}
-
-		.less::after {
-			content: "-";
-		}
-
-		.more::after {
-			content: "+";
-		}
-	}
 }
 
 

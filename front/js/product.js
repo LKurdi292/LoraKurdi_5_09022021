@@ -2,10 +2,9 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const product_id = urlParams.get('id');
-// console.log(productID);
 
 
-/* Récupération des données du produit grâce à l'id et affichage dynamique */
+/**************** Récupération des données du produit grâce à l'id et affichage dynamique *******************/
 fetch('http://localhost:3000/api/furniture/' + product_id)
 .then(function(res) {
 	if (res.ok) {
@@ -61,9 +60,6 @@ function displayHeart() {
 
 
 
-
-
-
 /************ Récupération de la couleur initiale du texte, pour les champs qui nécessitent une action de l'utilisateur **********/
 const defaultColor = document.querySelector('#varnishChoices_container > p').style.color;
 
@@ -89,10 +85,17 @@ let product_quantity = 0;
 let quantity = document.getElementsByTagName('input')[0];
 const textQuantity = document.querySelector('.quantity > p');
 
-// Récupération de la quantité
+// Récupération de la quantité et vérification que c'est un entier
 quantity.addEventListener('change', function() {
-	product_quantity = this.value;
-	backToInitialColor();
+	let value = parseFloat(this.value);
+
+	if(Number.isInteger(value)){
+		product_quantity = value;
+		backToInitialColor();
+	} else {
+		alert('Veuillez indiquer une valeur entière entre 1 et 20');
+		changeColor(textQuantity);
+	}
 });
 
 
@@ -136,13 +139,12 @@ function checkVarnish(value) {
 
 // Quantité choisie?
 function checkQuantity(value) {
-	let validQuantity =true;
-
-	if (value < 1) {
-		// Impossibilité d'ajouter au panier si quantité = 0
+	if (value < 1 || value > 20) {
+		// Impossibilité d'ajouter au panier si quantité non comprise entre 1 et 20 ou type non valable
+		console.log('je ne suis pas censé être là');
 		return false;
 	} else {
-		return validQuantity;
+		return true;
 	}
 }
 
@@ -294,9 +296,9 @@ addButton.addEventListener('click', function() {
 		}
 
 		if (!quantityOK) {
-			alert('Veuillez indiquer une quantité');
+			alert('Veuillez indiquer une valeur entre 1 et 20');
 			changeColor(textQuantity);
 			changeColor(quantity);
 		}
 	}
-});
+})
