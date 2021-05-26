@@ -11,6 +11,7 @@
 	<!-- CSS StyleSheet -->
 	<link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/all.min.css" type="text/css">
 	<link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/fontawesome.min.css" type="text/css">
+	
 	<link rel="stylesheet" href="../css/style.css">
 
 
@@ -95,9 +96,9 @@
 			<div class="quantity">
 				<p>Quantité</p>
 				<div class="quantity__control">
-					<div class="less greyBG" title="moins"></div>
-					<input type="text" class="quantity__number" value="" placeholder="0" alt="Entrer une quantité">
-					<div class="more greyBG" title="plus"></div>
+					<div class="control greyBG less " title="moins"></div>
+					<input type="number" min="0" max="20" class="quantity__number" value="" placeholder="0" alt="Entrer une quantité">
+					<div class="control greyBG more" title="plus"></div>
 				</div>
 			</div>
 

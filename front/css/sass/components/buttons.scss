@@ -5,6 +5,7 @@
 
 /* Bouton Ajouter au Panier - Page produit */
 /* Bouton Mettre à jour le Panier - Page Panier */
+/* Bouton Commander - Page Panier */
 
 .buttonContainer {
 	width: 350px;
@@ -13,10 +14,10 @@
 	border-radius: 3px;
 	// border: 1px solid black;
 	
-	button {
+	button, input {
 		border-radius: 4px;
 		cursor: pointer;
-		background-color: color(buttonBG);
+		background: color(buttonBG);
 		width: 100%;
 		height: 100%;
 		text-align: center;
@@ -25,7 +26,7 @@
 		border: none;
 		
 		&:hover {
-			opacity: 0.85;
+			opacity: 0.9;
 			box-shadow: 2px 2px 12px black;
 		}
 	}

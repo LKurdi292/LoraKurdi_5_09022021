@@ -85,7 +85,7 @@ let product_quantity = 0;
 let quantity = document.getElementsByTagName('input')[0];
 const textQuantity = document.querySelector('.quantity > p');
 
-// Récupération de la quantité et vérification que c'est un entier
+// Récupération de la quantité entrée et vérification que c'est un entier
 quantity.addEventListener('change', function() {
 	let value = parseFloat(this.value);
 
@@ -100,20 +100,22 @@ quantity.addEventListener('change', function() {
 
 
 //Fonctionnement des 'boutons' de quantité + et - => incrémentation de l'input 'quantity' et de product_quantity
-const more = document.getElementsByClassName('more')[0];
-const less = document.getElementsByClassName('less')[0];
+const control = document.getElementsByClassName('control');
 
-more.addEventListener('click', function() {
-	product_quantity++;
-	document.getElementsByTagName('input')[0].value++;
-	backToInitialColor();
-})
-
-less.addEventListener('click', function() {
-	product_quantity--;
-	document.getElementsByTagName('input')[0].value--;
-	backToInitialColor();
-})
+for (let i=0; i < control.length; i++ ) {
+	control[i].addEventListener('click', function() {
+		if (this.classList.contains('less')) {
+			if (product_quantity > 0) {
+				product_quantity--;
+				quantity.value--;
+			}
+		} else if (this.classList.contains('more')) {
+			product_quantity++;
+			quantity.value++;
+		}
+		backToInitialColor();
+	});
+}
 
 
 //Fonction qui redonne la couleur initiale au texte 'Quantité' et au '0' si ils sont passés au rouge (cf fonctions checkQuantity et changeColor)
@@ -141,7 +143,6 @@ function checkVarnish(value) {
 function checkQuantity(value) {
 	if (value < 1 || value > 20) {
 		// Impossibilité d'ajouter au panier si quantité non comprise entre 1 et 20 ou type non valable
-		console.log('je ne suis pas censé être là');
 		return false;
 	} else {
 		return true;
@@ -158,10 +159,10 @@ function changeColor(elementToChange) {
 
 
 
-/******* Fonction apparition de la div de confirmation d'ajout au panier puis suppression au bout de 2.5s **************/
+/******* Fonction apparition de la div de confirmation d'ajout au panier puis disparition au bout de 2.5s **************/
 const confirmDiv = document.getElementsByClassName('confirmAdditionToCart')[0];
 
-// retour à display 'none' pour un ajout supplémentaire sur la même page produit
+// retour à display 'none' pour permettre un ajout supplémentaire sur la même page produit
 function displayAndRemoveConfirmationDiv () {
 	confirmDiv.style.display = "flex";
 	setTimeout( () => confirmDiv.style.display = 'none', 2500);
@@ -172,6 +173,7 @@ function displayAndRemoveConfirmationDiv () {
 /********************************** Ajout d'une parenthèse *nombre d'articles* face à 'Panier' ****************************/
 let parentheses = document.createElement('p');
 document.getElementsByTagName('ul')[0].appendChild(parentheses);
+parentheses.style.margin = '0';
 
 
 

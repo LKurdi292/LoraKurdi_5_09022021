@@ -6,7 +6,7 @@
 /* Le Carousel - Accueil */
 div#primaryCarouselContainer {
 	height: 35vh;
-	position: relative;
+	// position: relative;
 	// border: 1px dashed blue;
 
 	
@@ -86,6 +86,7 @@ div#primaryCarouselContainer {
 main#homepage {
 	width: 70%;
 	margin: 0 auto;
+	position: relative;
 	// border: 1px dashed red;
 
 	h2 {

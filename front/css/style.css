@@ -88,8 +88,6 @@ footer {
   height: 5vh;
   width: 100%;
   background-color: #ECE4F4;
-  position: absolute;
-  bottom: 0;
 }
 footer ul {
   list-style-type: none;
@@ -149,7 +147,6 @@ a:visited {
 /* Le Carousel - Accueil */
 div#primaryCarouselContainer {
   height: 35vh;
-  position: relative;
 }
 div#primaryCarouselContainer #carouselContainer {
   position: relative;
@@ -214,6 +211,7 @@ div#primaryCarouselContainer #carouselContainer figure#carouselPics img {
 main#homepage {
   width: 70%;
   margin: 0 auto;
+  position: relative;
 }
 main#homepage h2 {
   width: 50vh;
@@ -431,6 +429,7 @@ main#productpage {
   height: 50%;
   width: 180px;
   margin: auto 0;
+  outline: none;
 }
 
 /* Input de la quantité et boutons +/-  */
@@ -438,10 +437,20 @@ main#productpage {
   display: flex;
   align-items: center;
   margin: 35px 0;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
 }
 .quantity p {
   font-size: 18px;
   margin: 0 20px 0 0;
+}
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /* Statut des stocks */
@@ -469,25 +478,6 @@ main#productpage {
 }
 .stockStatus .outOfStock {
   display: none;
-}
-
-/* Bouton Ajouter au Panier */
-.buttonContainer {
-  width: 350px;
-  height: 50px;
-  margin: 50px 0 0 0;
-  border-radius: 3px;
-}
-.buttonContainer button {
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: #af62b9;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 24px;
-  color: white;
-  border: none;
 }
 
 @font-face {
@@ -534,9 +524,11 @@ main h1 {
 table#cart {
   width: 100%;
   border-collapse: collapse;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
 }
 table#cart th {
-  background-color: #cccccc;
+  background-color: #ECE4F4;
 }
 table#cart th, table#cart td {
   padding: 10px;
@@ -545,9 +537,122 @@ table#cart th, table#cart td {
 table#cart td:nth-child(2), table#cart td:nth-child(3), table#cart td:nth-child(4) {
   text-align: center;
 }
+table#cart input::-webkit-outer-spin-button,
+table#cart input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+table#cart input[type=number] {
+  -moz-appearance: textfield;
+}
 
-h2 {
-  margin-top: 20vh;
+#totalDiv {
+  display: none;
+  align-items: center;
+  margin: 40px 0;
+  position: absolute;
+  right: 19vw;
+  font-size: 22px;
+}
+#totalDiv p:first-child {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+#totalDiv .total {
+  margin: 0 0 0 25px;
+  font-size: 18px;
+}
+
+section#form {
+  background: linear-gradient(125deg, #D08512, #9b59b6);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 15% 0 8%;
+  border-radius: 15px;
+}
+section#form .formContainer {
+  max-width: 900px;
+  width: 100%;
+  background: #fff;
+  margin: 10% auto;
+  padding: 25px 0;
+  border-radius: 5px;
+  font-family: "sans-serif";
+  color: #555;
+}
+section#form .formContainer .title {
+  margin: 2% 0 5% 30px;
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+section#form .formContainer .title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 50px;
+  background: linear-gradient(125deg, #D08512, #9b59b6);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 30px 12px 30px;
+}
+form .input-box {
+  width: calc(100% / 2 - 30px);
+  margin-bottom: 15px;
+}
+form .input-box label {
+  display: block;
+  font-weight: 540;
+  margin-bottom: 5px;
+}
+form .input-box input {
+  height: 45px;
+  width: calc(100% - 15px);
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+form .input-box input:valid, form .input-box input:focus {
+  border-color: #9b59b6;
+}
+form .input-box input:invalid:after {
+  content: "";
+  border-color: red;
+}
+
+/* Boutton Commander */
+.button {
+  height: 45px;
+  margin: 45px 30px;
+}
+.button input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: linear-gradient(125deg, #D08512, #9b59b6);
+  font-size: 18px;
+  font-weight: 550;
+  letter-spacing: 1px;
+}
+.button input:hover {
+  background: linear-gradient(-125deg, #D08512, #9b59b6);
+  cursor: pointer;
 }
 
 /* Div de controle des quantités, input et bouton + et - */
@@ -605,16 +710,17 @@ a:visited {
 
 /* Bouton Ajouter au Panier - Page produit */
 /* Bouton Mettre à jour le Panier - Page Panier */
+/* Bouton Commander - Page Panier */
 .buttonContainer {
   width: 350px;
   height: 50px;
   margin: 50px 0 0 0;
   border-radius: 3px;
 }
-.buttonContainer button {
+.buttonContainer button, .buttonContainer input {
   border-radius: 4px;
   cursor: pointer;
-  background-color: #af62b9;
+  background: linear-gradient(125deg, #D08512, #9b59b6);
   width: 100%;
   height: 100%;
   text-align: center;
@@ -622,8 +728,8 @@ a:visited {
   color: white;
   border: none;
 }
-.buttonContainer button:hover {
-  opacity: 0.85;
+.buttonContainer button:hover, .buttonContainer input:hover {
+  opacity: 0.9;
   box-shadow: 2px 2px 12px black;
 }
 

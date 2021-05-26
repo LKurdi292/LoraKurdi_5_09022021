@@ -17,9 +17,9 @@ fetch('http://localhost:3000/api/furniture')
 	insertNewProduct(arrayAllProducts);
 
 	/* Remplissage du tableau d'équivalence id/prix */
-	fillidNamePriceEquivalenceArray(arrayAllProducts);
+	fillIdNamePriceEquivalenceArray(arrayAllProducts);
 	sessionStorage.idNamePriceEquivalence = JSON.stringify(idNamePriceEquivalence);
-	console.log(idNamePriceEquivalence);
+	// console.log(idNamePriceEquivalence);
 })
 .catch (function(err) {
 	console.log(err);
@@ -27,7 +27,7 @@ fetch('http://localhost:3000/api/furniture')
 
 
 /******************** Fonction remplissage du tableau équivalence id/name/prix ****/
-function fillidNamePriceEquivalenceArray(array) {
+function fillIdNamePriceEquivalenceArray(array) {
 	array.forEach((element) => {
 		idNamePriceEquivalence.push({id : element._id, name: element.name, price : element.price});
 	});
@@ -99,11 +99,12 @@ function addDescriptionToProduct(element) {
 }
 
 
-/* Au retour sur la page d'accueil, après avoir ajouté des articles dans le panier pour la suite de la commande */
+/***************** Au retour sur la page d'accueil, après avoir ajouté des articles dans le panier pour la suite de la commande ***************/
 
-	// Ajout d'une parenthèse *nombre d'articles* face à 'Panier', à partir des info sessionStorage
+// Ajout d'une parenthèse *nombre d'articles* face à 'Panier', à partir des info sessionStorage
 let parentheses = document.createElement('p');
 document.getElementsByTagName('ul')[0].appendChild(parentheses);
+parentheses.style.margin = '0';
 
 
 if (sessionStorage.nbArticles) {

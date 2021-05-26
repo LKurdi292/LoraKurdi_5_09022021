@@ -9,10 +9,16 @@
 	<!-- favicon -->
 
 	<!-- CSS StyleSheet -->
-	
+	<link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/all.min.css" type="text/css">
+	<link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/fontawesome.min.css" type="text/css">
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!-- JS scripts -->
+	<script src="../js/confirmedOrder.js" defer></script>
 
 
-	<title>Commande confirmée - Orinico</title>
+
+	<title>Commande confirmée - Orinoco</title>
 
 </head>
 
@@ -26,22 +32,14 @@
 
 		<nav>
 			<ul>
-				<li><a>Accueil</a></li>
-				<li><a>Panier</a></li>
+				<li><a href="index.html" title="Retour à l'accueil"><i class="fas fa-home"></i> Accueil</a></li>
+				<li><a title="Votre panier est vide" href="cart.html"><i class="fas fa-shopping-cart"></i> Panier</a></li>
 			</ul>
 		</nav>
 	</header>
 
 
 	<main>
-		<div class="userPath">
-			<ul>
-				<li><a>Accueil</a></li>
-				<span>></span>
-				<li><a>Confirmation de commande</a></li>
-			</ul>
-		</div>
-
 		<div class="confirmedOrder_Container">
 			
 			<div class="confirmedOrder__sentence">
@@ -49,15 +47,13 @@
 					<img src="" alt="">
 				</figcaption>
 
-				<h2>Votre commande est confirmée</h2>
+				<h1>Votre commande a bien été reçue</h1>
+				<h2>Merci de votre achat !</h2>
 			</div>
 
+			<p id="commandId">Votre numéro de commande est : <span></span></p>
+			<p id="totalPriceCommand">Le total de votre commande est : <span></span></p>
 			<p class="email_sentence">Un email vous a été envoyé à l'adresse xxxx996@gmail.com</p>
-
-			<div class="goTo_links">
-				<button class="goTo_account">Aller à votre compte</button>
-				<button class="goTo_orderHistory">Historique des commandes</button>
-			</div>
 
 		</div>
 
