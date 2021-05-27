@@ -62,6 +62,9 @@ function updateTotalPrice(array) {
 	// Affichage du prix total
 	totalPrice.textContent = price + " €";
 
+	// Création et maj du total dans sessionStorage
+	sessionStorage.totalPrice = JSON.stringify(price);
+
 	// Maj du nombre d'articles dans la parenthèse
 	sessionStorage.nbArticles = JSON.stringify(nbArticles);
 }
@@ -276,34 +279,107 @@ fillCartPage(cart);
 
 /**********************************************   PARTIE II  FORMULAIRE ***********************************************/
 
-firstName = document.getElementById('firstName');
-lastName = document.getElementById('lastName');
-address = document.getElementById('address');
-complement = document.getElementById('complement');
-city = document.getElementById('city');
-email = document.getElementById('email');
+/******* Liste des champs du formulaire ************/
+let formFields = document.querySelectorAll('.input-box > input');
 
-// console.log(firstName.value);
+
+/********* Fonction qui ajoute un eventListener sur les champs pour récupérer les valeurs et qui rempli le tableau contact **********************/
+
+
+
+function addEventToFields (list) {
+	list.forEach(element => {
+		element.addEventListener('change', function() {
+			validEmail = false;
+			if (typeof this.value === 'string') {
+				// vérification validité
+				isValid = true;
+				if (element.name === 'email') {
+					validEmail = true;
+				}
+				
+				// Si le champ est requis, mettre à jour la valeur de l'élément
+				if (element.hasAttribute('required')) {
+					element.setAttribute("value", this.value);
+					contact[element.name] = element.value;
+				}
+			} else {
+				isValid = false;
+			}
+		
+			// Récupération du mail pour la page de confirmation de commande
+			if (element.name === 'email' && validEmail) {
+				email = element.value;
+				sessionStorage.emailAddress = JSON.stringify(email);
+			}
+		})
+	});
+}
+
+let contact = {};
+
+/***************** Fonction remplir l'objet contact ************/
 
 // contact = {
-// 	'firstName': firstName,
-// 	'lastName': lastName,
-// 	'address': address+" "+complement
+// 	firstName: document.getElementById('firstName').value,
+//  	lastName: document.getElementById('lasName').value,
+//  	address: document.getElementById('address').value,
+//  	city: document.getElementById('city').value,
+//  	email: document.getElementById('email').value
 // }
 
+addEventToFields(formFields);
 
 
 
+/********************* Remplissage du tableau products ****************/
 
-
-
-
-
-
-
-/****************** Bouton Commander **************/
-commandButton = document.getElementsByClassName('command')[0];
-
-commandButton.addEventListener('click', function(){
-	console.log(firstName.value);
+let products = [];
+cart.forEach(element => {
+	products.push(element.id);
 })
+
+
+
+/***************************  Fonction qui envoie le tableau contact et le tableau de products au back **************************/
+
+let data = {"contact": contact, "products": products};
+
+
+const url = 'http://​localhost:3000/api/furniture/order';
+const orderId = '';
+
+function send(e) {
+	e.preventDefault();
+	console.log(data);
+	fetch(url, {
+		method: "POST",
+		headers: {
+			"Content-type": "application/json", 
+		},
+		body: (JSON.stringify(data))
+	})
+	.then(function(res) {
+		if (res.ok) {
+			return res.json();
+		}
+	})
+	.then(function(res) {
+		sessionStorage.orderId = JSON.stringify(res.orderId);
+		window.location.href = "confirmedOrder.html";
+	})
+	.catch(function(err) {
+		console.log(err);
+	})
+}
+
+/****************** Envoie des données au submit du formulaire **************/
+formContact = document.getElementsByTagName('form')[0];
+
+formContact.addEventListener('submit', function(e) {
+	// réinitialisation des données
+	sessionStorage.removeItem("cart");
+	sessionStorage.removeItem("nbArticles");
+	
+	send(e);
+});

@@ -16,8 +16,6 @@
 	<!-- JS scripts -->
 	<script src="../js/confirmedOrder.js" defer></script>
 
-
-
 	<title>Commande confirmée - Orinoco</title>
 
 </head>
@@ -25,38 +23,42 @@
 <body>
 	<header>
 		<figcaption>
-			<a href="#">
+			<a href="index.html"  class="backHome">
 				<img src="../images/logo_orinoco.png" alt="logo d'Orinoco">
 			</a>
 		</figcaption>
 
 		<nav>
 			<ul>
-				<li><a href="index.html" title="Retour à l'accueil"><i class="fas fa-home"></i> Accueil</a></li>
+				<li><a href="index.html" title="Retour à l'accueil" class="backHome"><i class="fas fa-home"></i> Accueil</a></li>
 				<li><a title="Votre panier est vide" href="cart.html"><i class="fas fa-shopping-cart"></i> Panier</a></li>
 			</ul>
 		</nav>
 	</header>
 
 
-	<main>
-		<div class="confirmedOrder_Container">
+	<main id="confirmedOrderPage">
+		<div class="confirmedOrder_container">
 			
-			<div class="confirmedOrder__sentence">
+			<div class="confirmedOrder_header">
 				<figcaption class="check">
-					<img src="" alt="">
+					<i class="fas fa-check"></i>
 				</figcaption>
 
 				<h1>Votre commande a bien été reçue</h1>
-				<h2>Merci de votre achat !</h2>
 			</div>
 
-			<p id="commandId">Votre numéro de commande est : <span></span></p>
-			<p id="totalPriceCommand">Le total de votre commande est : <span></span></p>
-			<p class="email_sentence">Un email vous a été envoyé à l'adresse xxxx996@gmail.com</p>
+			<h2>Merci pour votre achat !</h2>
 
+			<div class="confirmedOrder_sentences">
+				
+				<p>Votre numéro de commande est le <span></span>. Le total de votre commande est de <span></span> € 
+				</p>	
+			</div>
+
+			<p>Un email vous a été envoyé à l'adresse <span></span>.
+			</p>
 		</div>
-
 
 	</main>
 

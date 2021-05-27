@@ -110,7 +110,11 @@ parentheses.style.margin = '0';
 if (sessionStorage.nbArticles) {
 	nbArticles = JSON.parse(sessionStorage.nbArticles);
 	parentheses.textContent = "(" + nbArticles + ")";
-	parentheses.display = 'block';
+	if (nbArticles != 0) {
+		parentheses.style.display = 'block';
+	} else {
+		parentheses.style.display ='none';
+	}
 	
 	// Modif du lien panier dans le header
 	panierLiElement = document.querySelectorAll('li > a')[1];
@@ -119,5 +123,5 @@ if (sessionStorage.nbArticles) {
 
 } else {
 	// Panier vide = première visite sur la page
-	parentheses.display ='none';
+	parentheses.style.display ='none';
 }

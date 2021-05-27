@@ -9,11 +9,18 @@ $colors: (
 	outOfStockBG: red,
 	buttonBG: linear-gradient(125deg, #D08512, #9b59b6),
 	heartBG: lighten(#9648a0, 20%),
+
 	confirmAdditionBG: #dff0d8,
 	confirmAdditionFont: #3c763d,
 	confirmAdditionBorder: #d6e9c6,
+
+	confirmCommandBG: #dff0d8,
+	confirmCommandFont: #3c763d,
+	confirmCommandBorder:#d6e9c6,
+
 	cartHeaderBG: lighten(black, 80%),
 	cartHeaderBorder: lighten(black, 70%),
+	
 	commandFormBG: linear-gradient(125deg, #D08512, #9b59b6),
 	commandFormHover: linear-gradient(-125deg, #D08512, #9b59b6),
 	borderForm: #ccc,

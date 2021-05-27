@@ -1,0 +1,56 @@
+@import "../utils/functions";
+@import "../base/base";
+
+
+main#confirmedOrderPage {
+	width: 70%;
+	margin: 2% auto 0;
+	// border: 1px solid black;
+	
+	.confirmedOrder_container {
+		margin: 5% 0 8%;
+		//border: 1px solid black;
+	
+		span {
+			font-weight: bold;
+		}
+
+		.confirmedOrder_header {
+			width: 100%;
+			height: 6vh;
+			margin-bottom: 5%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: color(confirmCommandBG);
+			border: 1px solid color(confirmCommandBorder);
+			border-radius: 4px;
+	
+			.fa-check {
+				font-size: 22px;
+				margin: 0 18px;
+				color: color(confirmCommandFont);
+			}
+	
+			h1 {
+				font-size: 24px;
+				margin: 0;
+				color: color(confirmAdditionFont);
+			}
+		}
+
+		h2 {
+			font-size: 18px;
+			margin-bottom: 3%;
+		}
+
+		.confirmedOrder_sentences {
+			display: flex;
+			align-items: center;
+
+			p {
+				margin: 0;
+			}
+		}
+	}
+}

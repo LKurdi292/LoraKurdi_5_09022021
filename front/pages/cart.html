@@ -37,7 +37,7 @@
 	</header>
 	
 
-	<main>
+	<main id="cartPage">
 		<div class="continueOrder">
 			<a href="index.html" title="Retour aux résultats"><i class="fas fa-chevron-left"></i></a>
 			<p>Continuer vos achats</p>
@@ -70,25 +70,26 @@
 
 			<div class="formContainer">
 				<h2 class="title">Passer Commande</h2>
-				<form action="send">
-					<div class="input-box">
-						<label for="lastName">Nom</label>
-						<input type="text" id="lastName"name="lastName" placeholder="Entrez votre nom" required>
-					</div>
-		
+				
+				<form action="confirmedOrder.html" method="POST">
 					<div class="input-box">
 						<label for="firstName">Prénom</label>
-						<input type="text" name="firstName" id="firstName" placeholder="Entrez votre prénom" required>
+						<input type="text" name="firstName" value="" id="firstName" placeholder="Entrez votre prénom" required>
+					</div>
+
+					<div class="input-box">
+						<label for="lastName">Nom</label>
+						<input type="text" id="lastName" name="lastName" placeholder="Entrez votre nom" value="" required>
 					</div>
 		
 					<div class="input-box">
 						<label for="address">Adresse</label>
-						<input type="text" id="address" name="address" placeholder="Entrez le numéro et la rue" required>
+						<input type="text" id="address" name="address" placeholder="Entrez le numéro et la rue" value="" required>
 					</div>
 		
 					<div class="input-box">
 						<label for="complement">Complément d'adresse</label>
-						<input type="text" id="complement" name="complement" placeholder="Ajoutez l'étage, le numéro d'appartement...." required>
+						<input type="text" id="complement" name="complement" placeholder="Ajoutez l'étage, le numéro d'appartement...." value="">
 					</div>
 		
 					<div class="input-box">
@@ -98,18 +99,18 @@
 		
 					<div class="input-box">
 						<label for="postalCode">Code postal</label>
-						<input type="text" id="postalCode" name="postalCode" placeholder="Entrez le code postal" required>
+						<input type="text" id="postalCode" name="postalCode" placeholder="Entrez le code postal">
 					</div>
 		
 					<div class="input-box">
 						<label for="email">E-Mail</label>
-						<input type="email" id="email" name="email" placeholder="Entrez votre adresse email" required>
+						<input type="email" id="email" value="" name="email" placeholder="Entrez votre adresse email" required>
 					</div>
 					
+					<div class="button">
+						<input type="submit" value="Commander" class="command"></input>
+					</div>
 				</form>
-				<div class="button">
-					<input type="submit" value="Commander" class="command"></input>
-				</div>
 			</div>
 		</section>
 
