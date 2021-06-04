@@ -54,7 +54,7 @@ header {
   width: 70%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 @media (max-width: 1024px) {
@@ -341,6 +341,7 @@ div#primaryCarouselContainer #carouselContainer .chevronsContainer .titlesContai
   letter-spacing: 0.15em;
   margin: 0;
   line-height: 260%;
+  font-weight: 800;
 }
 @media (max-width: 2000px) {
   div#primaryCarouselContainer #carouselContainer .chevronsContainer .titlesContainer h1 {
@@ -360,7 +361,6 @@ div#primaryCarouselContainer #carouselContainer .chevronsContainer .titlesContai
 @media (max-width: 584px) {
   div#primaryCarouselContainer #carouselContainer .chevronsContainer .titlesContainer h1 {
     font-size: 18px;
-    font-weight: 800;
   }
 }
 div#primaryCarouselContainer #carouselContainer .chevronsContainer .circleContainer {
