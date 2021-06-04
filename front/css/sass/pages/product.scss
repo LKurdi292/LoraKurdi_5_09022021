@@ -5,7 +5,7 @@
 /* Div dynamique de confirmation après ajout d'un article dans le panier */
 div.confirmAdditionToCart {
 	width: 70%;
-	margin: 0.5% auto 0;
+	margin: 1% auto;
 	height: 35px;
 	padding: 8px;
 	display: none;
@@ -14,12 +14,11 @@ div.confirmAdditionToCart {
 	border: 1px solid color(confirmAdditionBorder);
 	border-radius: 4px;
 
-	@include responsive('desktop') {
-		width: 80%;
-	}
-
-	@include responsive('tablet') {
+	@include responsive('smallDesktop') {
 		width: 90%;
+	}
+	@include responsive('phone') {
+		width: 100%;
 	}
 
 	.fa-check {
@@ -41,16 +40,18 @@ div.confirmAdditionToCart {
 /* Div Retour aux résultats */
 div.back {
 	width: 70%;
-	margin: 20px auto 0;
+	margin: 30px auto 0;
 	display: flex;
 	align-items: center;
 	height: 40px;
+	// border: 1px dashed red;
 
-	@include responsive('desktop') {
-		width: 80%;
-	}
 	@include responsive('smallDesktop') {
 		width: 90%;
+	}
+	@include responsive('phone') {
+		width: 95%;
+		margin: 15px auto 0;
 	}
 
 	i {
@@ -71,9 +72,6 @@ main#productpage {
 	align-items: flex-start;
 	// border: 1px solid black;
 
-	@include responsive('desktop') {
-		width: 80%;
-	}
 	@include responsive('smallDesktop') {
 		width: 90%;
 	}

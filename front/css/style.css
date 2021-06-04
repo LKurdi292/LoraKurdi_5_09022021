@@ -602,7 +602,7 @@ a:visited {
 /* Div dynamique de confirmation après ajout d'un article dans le panier */
 div.confirmAdditionToCart {
   width: 70%;
-  margin: 0.5% auto 0;
+  margin: 1% auto;
   height: 35px;
   padding: 8px;
   display: none;
@@ -611,14 +611,14 @@ div.confirmAdditionToCart {
   border: 1px solid #d6e9c6;
   border-radius: 4px;
 }
-@media (max-width: 2000px) {
-  div.confirmAdditionToCart {
-    width: 80%;
-  }
-}
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
   div.confirmAdditionToCart {
     width: 90%;
+  }
+}
+@media (max-width: 584px) {
+  div.confirmAdditionToCart {
+    width: 100%;
   }
 }
 div.confirmAdditionToCart .fa-check {
@@ -640,19 +640,20 @@ div.confirmAdditionToCart p {
 /* Div Retour aux résultats */
 div.back {
   width: 70%;
-  margin: 20px auto 0;
+  margin: 30px auto 0;
   display: flex;
   align-items: center;
   height: 40px;
 }
-@media (max-width: 2000px) {
-  div.back {
-    width: 80%;
-  }
-}
 @media (max-width: 1024px) {
   div.back {
     width: 90%;
+  }
+}
+@media (max-width: 584px) {
+  div.back {
+    width: 95%;
+    margin: 15px auto 0;
   }
 }
 div.back i {
@@ -669,11 +670,6 @@ main#productpage {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-@media (max-width: 2000px) {
-  main#productpage {
-    width: 80%;
-  }
 }
 @media (max-width: 1024px) {
   main#productpage {
