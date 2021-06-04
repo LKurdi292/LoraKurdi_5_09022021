@@ -153,23 +153,31 @@ form {
 			width: calc(100% - 15px);
 			outline: none;
 			border-radius: 5px;
-			border: 1px solid color(borderForm);
+			border: 1px solid color(borderFormFocus);
 			padding-left: 15px;
 			font-size: 16px;
 			border-bottom-width: 2px;
 			transition: all 0.3s ease;
 			
-			&:valid, &:focus {
+			&:focus, &:valid {
 				border-color: color(borderFormFocus);
-			}
+				background-color: none;
 
-			&:invalid:after {
-				content: '';
-				border-color: color(outOfStockBG);
 			}
 		}
 	}
 }
+
+/***** Classe qui permet de passer le champ en rouge ***/
+.redStyle {
+	background-color : color(invalidFormField);
+	border: 1px solid color(invalidFormField);
+	color: white;
+}
+
+
+
+
 
 /* Boutton Commander */
 .button {
@@ -188,7 +196,7 @@ form {
 		font-weight: 550;
 		letter-spacing: 1px;
 
-		&:hover {
+		&:hover, &:focus {
 			background: color(commandFormHover);
 			cursor: pointer;
 		}

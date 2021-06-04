@@ -107,7 +107,7 @@ document.getElementsByTagName('ul')[0].appendChild(parentheses);
 parentheses.style.margin = '0';
 
 
-if (sessionStorage.nbArticles) {
+if (parseInt(sessionStorage.nbArticles) > 0) {
 	nbArticles = JSON.parse(sessionStorage.nbArticles);
 	parentheses.textContent = "(" + nbArticles + ")";
 	if (nbArticles != 0) {
@@ -122,6 +122,13 @@ if (sessionStorage.nbArticles) {
 	panierLiElement.setAttribute('href', './cart.html');
 
 } else {
-	// Panier vide = première visite sur la page
+	// Panier vide = première visite sur la page ou
+	// retour à l'accueil après une commande
 	parentheses.style.display ='none';
+
+	// Modif du lien panier dans le header
+	panierLiElement = document.querySelectorAll('li > a')[1];
+	panierLiElement.setAttribute('title', 'Votre panier est vide');
+	panierLiElement.setAttribute('href', '');
+
 }

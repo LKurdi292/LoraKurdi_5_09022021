@@ -127,6 +127,7 @@ a:visited {
   color: #333333;
 }
 
+/* Media Queries */
 @font-face {
   font-family: "roboto";
   src: url(fonts/roboto/Roboto-Regular.ttf);
@@ -621,18 +622,22 @@ form .input-box input {
   width: calc(100% - 15px);
   outline: none;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #9b59b6;
   padding-left: 15px;
   font-size: 16px;
   border-bottom-width: 2px;
   transition: all 0.3s ease;
 }
-form .input-box input:valid, form .input-box input:focus {
+form .input-box input:focus, form .input-box input:valid {
   border-color: #9b59b6;
+  background-color: none;
 }
-form .input-box input:invalid:after {
-  content: "";
-  border-color: red;
+
+/***** Classe qui permet de passer le champ en rouge ***/
+.redStyle {
+  background-color: #b20a37;
+  border: 1px solid #b20a37;
+  color: white;
 }
 
 /* Boutton Commander */
@@ -652,7 +657,7 @@ form .input-box input:invalid:after {
   font-weight: 550;
   letter-spacing: 1px;
 }
-.button input:hover {
+.button input:hover, .button input:focus {
   background: linear-gradient(-125deg, #D08512, #9b59b6);
   cursor: pointer;
 }
@@ -773,7 +778,6 @@ a:visited {
 }
 
 /* Bouton Ajouter au Panier - Page produit */
-/* Bouton Mettre à jour le Panier - Page Panier */
 /* Bouton Commander - Page Panier */
 .buttonContainer {
   width: 350px;

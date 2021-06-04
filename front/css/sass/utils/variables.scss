@@ -25,4 +25,12 @@ $colors: (
 	commandFormHover: linear-gradient(-125deg, #D08512, #9b59b6),
 	borderForm: #ccc,
 	borderFormFocus: #9b59b6,
+	invalidFormField : #b20a37,
+);
+
+
+$breakpoints: (
+	'tablet' : (min-width: 600px),
+	'smallDesktop': (min-width: 1000px),
+	'desktop': (min-width: 1430px),
 );

@@ -86,7 +86,7 @@ let quantity = document.getElementsByTagName('input')[0];
 const textQuantity = document.querySelector('.quantity > p');
 
 // Récupération de la quantité entrée et vérification que c'est un entier
-quantity.addEventListener('change', function() {
+quantity.addEventListener('input', function() {
 	let value = parseFloat(this.value);
 
 	if(Number.isInteger(value)){
@@ -182,7 +182,7 @@ parentheses.style.margin = '0';
 
 const panierLiElement = document.querySelectorAll('li > a')[1];
 
-if (!sessionStorage.cart) {
+if (!sessionStorage.cart || sessionStorage.cart.length == 0) {
 	// Première page produit visitée = panier vide
 	cart = [];
 

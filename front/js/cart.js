@@ -86,7 +86,7 @@ function updateAll(productId, quantity, newLine, quantityChange) {
 	let productTotal = parseInt(quantity) * parseInt(productPrice);
 	newLine.getElementsByClassName('price')[0].textContent = productTotal + " €";
 
-	//MAJ du total
+	//MAJ du total et du nbArtciles
 	updateTotalPrice(cart);
 }
 
@@ -105,6 +105,8 @@ function addQuantityControl (cell3, newLine, quantity) {
 	
 	let quantityChange = document.createElement('input');
 	quantityChange.setAttribute('type', 'number');
+	quantityChange.setAttribute('max', '20');
+	quantityChange.setAttribute('min', '0');
 	quantityChange.setAttribute('value', quantity);
 
 	// Remplissage de la div de controle
@@ -124,22 +126,35 @@ function addQuantityControl (cell3, newLine, quantity) {
 	// Ajout des eventListener, maj du panier, du sous-total et du Total au clic '+' et '-'
 	for (let i=0; i < control.length; i++ ) {
 		control[i].addEventListener('click', function() {
-			if (this.classList.contains('less')) {
-				if (quantity > 0) {
+			if (this.classList.contains('less') && quantity <= 20) {
+				if (quantity != 0 ) {
 					quantity--;
 				}
-			} else if (this.classList.contains('more')) {
-				quantity++;
+			} else if (this.classList.contains('more') &&  quantity >= 0) {
+				if (quantity == 20) {
+					alert('Vous ne pouvez pas commander plus de 20 articles par produits');
+				} else {
+					quantity++;
+				}
 			}
-
 			updateAll(productId, quantity, newLine, quantityChange);
 		});
 	}
 
 	// Ajout du eventListener sur le input 'quantité' et maj du panier, du sous-total du Total
 	quantityChange.addEventListener('change', function() {
-		quantity = this.value;
-		updateAll(productId, quantity, newLine, quantityChange);
+		let value = parseInt(this.value);
+
+		if(Number.isInteger(value)){
+			if (value > 0 && value <= 20) {
+				quantity = value;
+				updateAll(productId, quantity, newLine, quantityChange);
+			} else {
+				alert('Veuillez indiquer une valeur entière entre 1 et 20');
+			}
+		} else {
+			alert('Veuillez indiquer une valeur entière entre 1 et 20');
+		}
 	});
 	
 	// Ajout de la div de controle à la cellule du tableau
@@ -147,8 +162,8 @@ function addQuantityControl (cell3, newLine, quantity) {
 }
 
 
-/******************* Fonction qui supprime une ligne du tableau ************/
-function deleteProduct (element, newLine, quantite){
+/******************* Fonction qui supprime un article ************/
+function deleteProduct (element, newLine, quantite) {
 	element.addEventListener('click', function() {
 		let tableau = document.getElementById('cart');
 		let i = newLine.rowIndex;
@@ -160,12 +175,10 @@ function deleteProduct (element, newLine, quantite){
 		cart.splice(i-1, 1);
 		sessionStorage.cart = JSON.stringify(cart);
 
-		// Maj du nombre d'articles dans la parenthèse
-		nbArticles -= quantite;
-		sessionStorage.nbArticles = JSON.stringify(nbArticles);
+		//MAJ du total et du nbArtciles
+		updateTotalPrice(cart);
 	});
 }
-
 
 
 /***************** Fonction qui ajoute un bouton pour supprimer le produit ***************/
@@ -251,6 +264,10 @@ function addNewLine(idProduit, nomProduit, vernis, price, quantite) {
 
 
 
+
+
+
+
 /********** Affichage du contenu du panier dans le tableau ************/
 
 function fillCartPage (array) {
@@ -279,56 +296,167 @@ fillCartPage(cart);
 
 /**********************************************   PARTIE II  FORMULAIRE ***********************************************/
 
+
+
+/********* Les Regex pour vérifier les champs *********/
+
+// 20 caractères par champ texte
+const regexText = new RegExp("[A-Za-z-äë ]{1,20}");
+
+// champ adresse qui peut prendre du texte et des chiffres
+const regexAddress = new RegExp("^[a-zA-Z0-9_-èé ]*$");
+
+//^[A-Za-z0-9]{1,20}' '+[A-Za-z0-9]{1,20}$");
+
+// code postal à 5 chiffres en excluant le 00000
+const regexPostalCode = new RegExp("^(?!00000)\\d{5}$");
+
+// email avec un @ et .  
+const regexEmail = new RegExp("^[A-Za-z0-9-_.]+@[a-z]{3,}[.][a-z]{2,4}$");
+
+
+
+/************* Fonction qui vérifie les champs texte ******/
+function checkText(value) {
+	if (regexText.test(value)) {
+		return true;
+	} else {
+		console.log(regexText);
+		console.log('texte non valide!');
+		return false;
+	}
+}
+
+/********** Fonction qui vérifie le champ de l'adresse ********/
+function checkAddress(value) {
+	if (regexAddress.test(value)) {
+		return true;
+	} else {
+		console.log(regexAddress);
+		console.log('adresse non valide!');
+		return false;
+	}
+}
+
+
+/************* Fonction qui vérifie le champ codepostal ***********/
+function checkPostalCode(value) {
+	if (regexPostalCode.test(value)) {
+		return true;
+	} else {
+		console.log(regexPostalCode);
+		console.log('code postal non valide!');
+		return false;
+	}
+}
+
+
+/********************* Fonction qui vérifie le champ email *******************/
+function checkEmail(value) {
+	value = value.toString();
+	if (regexEmail.test(value)) {
+		return true;
+	} else {
+		console.log(regexEmail);
+		console.log('mail non valide');
+		return false;
+	}
+}
+
+/********** Fonction qui redonne les couleurs initiale au champ ***************/
+function setInitialColor(element) {
+	element.style.backgroundColor = "none";
+	element.style.borderColor = "#9b59b6";
+	// element.style.color = "#ccc";
+}
+
+
+
+/*********** Fonction qui ajoute un eventListener sur les champs pour récupérer les valeurs et les vérifier, puis rempli l'objet contact **********************/
+
+let validTextField = false;
+let validAddressField = false;
+let validPostalCodeField = false;
+let validEmail = false;
+
+function addEventToFields (element) {
+	element.addEventListener('change', function() {
+		
+		// vérification des champs texte
+		if (element.name == 'firstName' || element.name == 'lastName' || element.name == 'city') {
+
+			element.setAttribute("value", this.value);
+			validTextField = checkText(this.value);
+
+			if (!validTextField) {
+				element.classList.add('redStyle');
+				element.setAttribute("value", "");
+			} else {
+				element.classList.remove('redStyle');
+			}
+		}
+
+		// verification de l'adresse et du complément 
+		if (element.name == 'address' || element.name == 'complement') {
+			element.setAttribute("value", this.value);
+			validAddressField = checkAddress(this.value);
+
+			if (!validAddressField) {
+				element.classList.add('redStyle');
+				element.setAttribute("value", "");
+			} else {
+				element.classList.remove('redStyle');
+			}
+		}
+
+		// verification du code postal
+		if (element.name === 'postalCode') {
+			element.setAttribute("value", this.value);
+			validPostalCodeField = checkPostalCode(this.value);
+
+			if (!validPostalCodeField) {
+				element.classList.add('redStyle');
+				element.setAttribute("value", "");
+			} else {
+				element.classList.remove('redStyle');
+			}
+		}
+
+		// verification de l'adresse mail
+		if (element.type === 'email') {
+			element.setAttribute("value", this.value);
+			validEmail = checkEmail(this.value);
+
+			if (!validEmail) {
+				element.classList.add('redStyle');
+				element.setAttribute("value", "");
+			} else {
+				element.classList.remove('redStyle');
+				// Récupération du mail pour la page deconfirmation de commande
+				sessionStorage.emailAddress = JSON.stringify(element.value);
+			}
+		}
+			
+		// Si le champ est requis, remplir l'objet contact
+		if (element.hasAttribute('required') ) {
+			contact[element.name] = element.value;
+		}
+	});
+}
+
+
+/***************** Fonction pour vérifier les champs du formulaire et remplir l'objet contact ************/
+
+let contact = {};
+
+
 /******* Liste des champs du formulaire ************/
 let formFields = document.querySelectorAll('.input-box > input');
 
 
-/********* Fonction qui ajoute un eventListener sur les champs pour récupérer les valeurs et qui rempli le tableau contact **********************/
-
-
-
-function addEventToFields (list) {
-	list.forEach(element => {
-		element.addEventListener('change', function() {
-			validEmail = false;
-			if (typeof this.value === 'string') {
-				// vérification validité
-				isValid = true;
-				if (element.name === 'email') {
-					validEmail = true;
-				}
-				
-				// Si le champ est requis, mettre à jour la valeur de l'élément
-				if (element.hasAttribute('required')) {
-					element.setAttribute("value", this.value);
-					contact[element.name] = element.value;
-				}
-			} else {
-				isValid = false;
-			}
-		
-			// Récupération du mail pour la page de confirmation de commande
-			if (element.name === 'email' && validEmail) {
-				email = element.value;
-				sessionStorage.emailAddress = JSON.stringify(email);
-			}
-		})
-	});
+for (let element= 0; element < formFields.length; element++ ) {
+	addEventToFields(formFields[element]);
 }
-
-let contact = {};
-
-/***************** Fonction remplir l'objet contact ************/
-
-// contact = {
-// 	firstName: document.getElementById('firstName').value,
-//  	lastName: document.getElementById('lasName').value,
-//  	address: document.getElementById('address').value,
-//  	city: document.getElementById('city').value,
-//  	email: document.getElementById('email').value
-// }
-
-addEventToFields(formFields);
 
 
 
@@ -341,7 +469,7 @@ cart.forEach(element => {
 
 
 
-/***************************  Fonction qui envoie le tableau contact et le tableau de products au back **************************/
+/***************************  Fonction qui envoie le tableau contact et le tableau de products au back end **************************/
 
 let data = {"contact": contact, "products": products};
 
@@ -351,7 +479,6 @@ const orderId = '';
 
 function send(e) {
 	e.preventDefault();
-	console.log(data);
 	fetch(url, {
 		method: "POST",
 		headers: {
@@ -366,7 +493,11 @@ function send(e) {
 	})
 	.then(function(res) {
 		sessionStorage.orderId = JSON.stringify(res.orderId);
-		window.location.href = "confirmedOrder.html";
+		if (sessionStorage.orderId) {
+			window.location.href = "confirmedOrder.html";
+		} else {
+			console.log('sessionStorage.orderId does not exist, look for post fetch promise');
+		}
 	})
 	.catch(function(err) {
 		console.log(err);
@@ -377,9 +508,14 @@ function send(e) {
 formContact = document.getElementsByTagName('form')[0];
 
 formContact.addEventListener('submit', function(e) {
-	// réinitialisation des données
-	sessionStorage.removeItem("cart");
-	sessionStorage.removeItem("nbArticles");
-	
-	send(e);
+	if (nbArticles > 0 && cart.length > 0  && validTextField) {
+		send(e);
+	} else {
+		// impossibilité de commander lorsque le panier est vide
+		alert("Votre panier est vide");
+		e.preventDefault();
+		sessionStorage.removeItem('emailAddress');
+		// reinitialisation des valeurs du formulaire
+		formContact.reset();
+	}
 });

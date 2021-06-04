@@ -1,0 +1,16 @@
+/* Media Queries */
+
+@mixin responsive($name) {
+	// Vérifier que la clé existe dans la map
+	@if map-has-key($breakpoints, $name) {
+	  // créer la media query
+	  @media #{inspect(map-get($breakpoints, $name))} {
+		@content;
+	  }
+	}
+	// warning si la clé n'existe pas dans la map
+	@else {
+	  @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+		  + "Please make sure it is defined in `$breakpoints` map (variables.scss).";
+	}
+}
