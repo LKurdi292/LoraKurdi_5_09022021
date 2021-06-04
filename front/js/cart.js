@@ -190,17 +190,12 @@ function addDeleteButton (cell, newLine, quantite) {
 
 	// Style de l'icone poubelle
 	trashIcon.setAttribute('src', '../images/trash-alt-solid.svg');
-	trashIcon.style.width = '15px';
-	trashIcon.style.height = '15px';
-	trashIcon.style.marginRight = '5px';
+	trashIcon.classList.add('trashIcon');
 
 	// Style du texte 'Supprimer'
 	deleteText.textContent = 'Supprimer';
 	deleteText.setAttribute('title', 'Supprimer');
-	deleteText.style.margin = '0';
-	deleteText.style.fontSize = '14px';
-	deleteText.style.textDecoration = 'underline';
-	deleteText.style.cursor  ='pointer';
+	deleteText.classList.add('deleteText');
 	
 	// Action de suppression au clic sur le texte
 	deleteProduct(deleteText, newLine, quantite);
@@ -208,11 +203,7 @@ function addDeleteButton (cell, newLine, quantite) {
 	// Ajout de ces 2 éléments dans la div
 	deleteDiv.appendChild(trashIcon);
 	deleteDiv.appendChild(deleteText);
-
-	deleteDiv.style.display = 'flex';
-	deleteDiv.style.justifyContent = 'center';
-	deleteDiv.style.alignItems = 'center';
-	deleteDiv.style.margin = '15px 0';
+	deleteDiv.classList.add('deleteDiv');
 
 	// Ajout de la div à la cellule du tableau
 	cell.appendChild(deleteDiv);

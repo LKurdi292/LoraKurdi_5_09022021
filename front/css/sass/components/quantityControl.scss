@@ -5,6 +5,12 @@
 	justify-content: space-around;
 	align-items: center;
 	// border: 1px solid black;
+	
+	@include responsive('phone') {
+		width: 80%;
+		margin: auto;
+		font-size: 12px;
+	}
 
 	div {
 		text-align: center;
@@ -17,7 +23,11 @@
 		justify-content: center;
 		align-items: center;
 		margin: 0 8px;
+		@include responsive('phone') {
+			height: 25px;
+		}
 	}
+
 	.greyBG {
 		background-color: color(quantityBG);
 	}
@@ -27,6 +37,10 @@
 		text-align: center;
 		width: 40px;
 		border: 1px solid color(quantityBG);
+		@include responsive('phone') {
+			width: 30px;
+			height: 25px;
+		}
 	}
 
 	.less::after {
@@ -36,4 +50,35 @@
 	.more::after {
 		content: "+";
 	}
+}
+
+.deleteDiv {
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	margin : 15px 0;
+	@include responsive('phone') {
+		margin: 10px 0;
+	}
+	
+	.deleteText {
+		margin : 0;
+		font-size : 14px;
+		text-decoration : underline;
+		cursor : pointer;
+		@include responsive('phone') {
+			font-size: 12px;
+		}
+	}
+
+	.trashIcon {
+		width : 15px;
+		height : 15px;
+		margin-right : 5px;
+		@include responsive('phone') {
+			width: 12px;
+			height: 12px;
+		}
+	}
+
 }

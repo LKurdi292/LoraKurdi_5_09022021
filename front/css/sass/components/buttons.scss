@@ -4,7 +4,6 @@
 
 
 /* Bouton Ajouter au Panier - Page produit */
-/* Bouton Commander - Page Panier */
 
 .buttonContainer {
 	width: 350px;
@@ -12,6 +11,17 @@
 	margin: 50px 0 0 0;
 	border-radius: 3px;
 	// border: 1px solid black;
+
+	@include responsive('smallDesktop') {
+		width: 300px;
+	}
+	@include responsive('tablet') {
+		width: 250px;
+	}
+	@include responsive('phone') {
+		width: 200px;
+		margin: 50px auto;
+	}
 	
 	button, input {
 		border-radius: 4px;
@@ -23,6 +33,9 @@
 		font-size: 24px;
 		color: white;
 		border: none;
+		@include responsive('phone') {
+			font-size: 18px;
+		}
 		
 		&:hover {
 			opacity: 0.9;

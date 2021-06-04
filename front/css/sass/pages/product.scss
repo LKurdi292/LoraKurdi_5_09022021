@@ -14,10 +14,21 @@ div.confirmAdditionToCart {
 	border: 1px solid color(confirmAdditionBorder);
 	border-radius: 4px;
 
+	@include responsive('desktop') {
+		width: 80%;
+	}
+
+	@include responsive('tablet') {
+		width: 90%;
+	}
+
 	.fa-check {
 		font-size: 15px;
 		margin: 0 10px;
 		color: color(confirmAdditionFont);
+		@include responsive('tablet') {
+			font-size: 12px;
+		}
 	}
 
 	p {
@@ -34,6 +45,14 @@ div.back {
 	display: flex;
 	align-items: center;
 	height: 40px;
+
+	@include responsive('desktop') {
+		width: 80%;
+	}
+	@include responsive('smallDesktop') {
+		width: 90%;
+	}
+
 	i {
 		margin-right: 10px;
 	}
@@ -51,6 +70,17 @@ main#productpage {
 	justify-content: space-between;
 	align-items: flex-start;
 	// border: 1px solid black;
+
+	@include responsive('desktop') {
+		width: 80%;
+	}
+	@include responsive('smallDesktop') {
+		width: 90%;
+	}
+	@include responsive('phone') {
+		display: block;
+		width: 95%;
+	}
 }
 
 
@@ -62,6 +92,16 @@ main#productpage {
 	margin: 0;
 	// border: 1px dashed red;
 
+	@include responsive('smallDesktop') {
+		width: 60%;
+	}
+	@include responsive('tablet') {
+		width: 50%;
+	}
+	@include responsive('phone') {
+		width: 100%;
+	}
+
 	figure {
 		width: 85%;
 		height: 400px;
@@ -69,6 +109,9 @@ main#productpage {
 		padding: 0;
 		position: relative;
 		// border: 1px solid orange;
+		@include responsive('tablet') {
+			width: 100%;
+		}
 
 		img {
 			object-fit: cover;
@@ -89,6 +132,9 @@ main#productpage {
 			display: none;
 			align-items: center;
 			justify-content: center;
+			@include responsive('phone') {
+				right: 15px;
+			}
 
 			& .fas.fa-heart {
 				max-width: 30px;
@@ -104,16 +150,28 @@ main#productpage {
 
 	.description {
 		min-height: 200px;
+		@include responsive('phone') {
+			width: 90%;
+			min-height: 150px;
+		}
 
 		&__title {
 			font-size: 20px;
 			font-weight: bold;
 			margin-top: 0;
+			@include responsive('phone') {
+				margin-bottom: 5%;
+				font-size: 14px;
+			}
 		}
 
 		&__text {
 			font-size: 18px;
 			text-align: justify;
+			@include responsive('phone') {
+				margin-bottom: 5%;
+				font-size: 14px;
+			}
 		}
 	}
 }
@@ -126,13 +184,35 @@ main#productpage {
 	margin: 0 0 20px 3%;
 	// border: 1px dashed green;
 
+	@include responsive('smallDesktop') {
+		width: 40%;
+		margin: 0 0 20px 0;
+	}
+
+	@include responsive('tablet') {
+		width: 50%;
+		margin: 0 0 0 3%;
+	}
+
+	@include responsive('phone') {
+		width: 100%;
+		margin: 50px auto;
+		text-align: center;
+	}
+
 	h1.product__name {
 		font-size: 24px;
 		margin-top: 0;
+		@include responsive('tablet') {
+			font-size: 20px;
+		}
 	}
 
 	h2.product__price {
 		font-size: 22px;
+		@include responsive('tablet') {
+			font-size: 18px;
+		}
 	}
 }
 
@@ -142,10 +222,20 @@ main#productpage {
 	display: flex;
 	margin: 35px 0;
 	// border: 1px solid violet;
+
+	@include responsive('phone') {
+		margin: 35px 25px;
+	}
 	
 	p {
 		font-size: 18px;
 		margin: 0 40px 0 0;
+		@include responsive('tablet') {
+			font-size: 16px;
+		}
+		@include responsive('phone') {
+			margin: 0 20px 0 0;
+		}
 	}
 
 	select {
@@ -154,6 +244,9 @@ main#productpage {
 		width: 180px;
 		margin: auto 0;
 		outline: none;
+		@include responsive('phone') {
+			width: 50%;
+		}
 	}
 }
 
@@ -166,9 +259,20 @@ main#productpage {
 	margin: 35px 0;
 	// border: 1px solid violet;
 
+	@include responsive('phone') {
+		width: 50%;
+		margin: 0 25px 35px;
+	}
+
 	p {
 		font-size: 18px;
 		margin: 0 20px 0 0;
+		@include responsive('tablet') {
+			font-size: 16px;
+		}
+		@include responsive('phone') {
+			margin: 0 20px 0 0;
+		}
 	}
 
 	// Supprimer les petites flèches haut et bas par défaut de l'input number (quantité)
@@ -195,6 +299,11 @@ main#productpage {
 	&__container {
 		display: flex;
 		align-items: center;
+		@include responsive('phone') {
+			width: 50%;
+			margin: 0 25px 35px;
+		}
+
 		.roundIndicator {
 			width: 12px;
 			height: 12px;

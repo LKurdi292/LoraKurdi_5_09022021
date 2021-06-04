@@ -6,7 +6,7 @@ footer {
 	background-color: color(footer);
 	position: fixed;
 	bottom: 0;
-	//border: 1px solid red;
+	// border: 1px solid red;
 
 	ul {
 		list-style-type: none;
@@ -17,9 +17,17 @@ footer {
 		display: flex;
 		justify-content: start;
 		align-items: center;
+		// border: 1px solid blue;
+
+		@include responsive('tablet') {
+			width: 100%;
+		}
 
 		li {
 			margin: auto 1%;
+			@include responsive('tablet') {
+				width: 33%;
+			}
 
 			a {
 				text-decoration: underline;

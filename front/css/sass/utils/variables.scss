@@ -30,7 +30,8 @@ $colors: (
 
 
 $breakpoints: (
-	'tablet' : (min-width: 600px),
-	'smallDesktop': (min-width: 1000px),
-	'desktop': (min-width: 1430px),
+	'phone' : (max-width: 584px),
+	'tablet' : (max-width: 800px),
+	'smallDesktop': (max-width: 1024px),
+	'desktop': (max-width: 2000px),
 );

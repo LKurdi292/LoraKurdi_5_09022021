@@ -6,11 +6,25 @@ main#confirmedOrderPage {
 	width: 70%;
 	margin: 2% auto 0;
 	// border: 1px solid black;
+
+	@include responsive('tablet') {
+		width: 85%;
+		margin: 5% auto;
+	}
+
+	@include responsive('phone') {
+		width: 95%;
+		max-height: 500px;
+	}
 	
 	.confirmedOrder_container {
 		margin: 5% 0 8%;
-		//border: 1px solid black;
+		// border: 1px dashed black;
 	
+		@include responsive('tablet') {
+			margin-top: 80px;
+		}
+
 		span {
 			font-weight: bold;
 		}
@@ -30,18 +44,27 @@ main#confirmedOrderPage {
 				font-size: 22px;
 				margin: 0 18px;
 				color: color(confirmCommandFont);
+				@include responsive('phone') {
+					font-size: 16px;
+				}
 			}
 	
 			h1 {
 				font-size: 24px;
 				margin: 0;
 				color: color(confirmAdditionFont);
+				@include responsive('phone') {
+					font-size: 16px;
+				}
 			}
 		}
 
 		h2 {
 			font-size: 18px;
 			margin-bottom: 3%;
+			@include responsive('phone') {
+				font-size: 15px;
+			}
 		}
 
 		.confirmedOrder_sentences {

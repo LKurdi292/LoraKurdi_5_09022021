@@ -3,19 +3,24 @@
 
 
 
-/* Le Carousel - Accueil */
+/* Le faux Carousel - Accueil */
 div#primaryCarouselContainer {
 	height: 35vh;
-	// position: relative;
 	// border: 1px dashed blue;
 
-	
 	#carouselContainer {
 		position: relative;
 		width: 70%;
 		margin: 0 auto;
 		height: 100%;
 		// border: 1px dashed black;
+
+		@include responsive('smallDesktop') {
+			width: 85%;
+		}
+		@include responsive('phone') {
+			width: 100%;
+		}
 		
 		.chevronsContainer {
 			position: absolute;
@@ -30,15 +35,37 @@ div#primaryCarouselContainer {
 			.titlesContainer {
 				max-height: 100%;
 				max-width: 100%;
+				display: flex;
+				align-items: center;
 				// border: 1px solid green;
+
+				@include responsive('phone') {
+					height: 95%;
+					margin: auto 5%;
+				}
 
 				h1 {
 					max-width: 100vh;
+					display: flex;
+					align-items: center;
 					text-align: center;
 					color: white;
 					letter-spacing: 0.15em;
 					margin: 0;
 					line-height: 260%;
+					@include responsive('desktop') {
+						font-size: 30px;
+					}
+					@include responsive('smallDesktop') {
+						font-size: 26px;
+					}
+					@include responsive('tablet') {
+						font-size: 22px;
+					}
+					@include responsive('phone') {
+						font-size: 18px;
+						font-weight: 800;
+					}
 
 				}
 			}
@@ -54,9 +81,20 @@ div#primaryCarouselContainer {
 				justify-content: center;
 				align-items: center;
 	
+				@include responsive('desktop') {
+					width: 30px;
+					height: 30px;
+				}
+
 				& .fas {
 					color: white;
 					font-size: 22px;
+					@include responsive('smallDesktop') {
+						font-size: 18px;
+					}
+					@include responsive('phone') {
+						font-size: 14px;
+					}
 				}
 
 				&:hover {
@@ -72,10 +110,19 @@ div#primaryCarouselContainer {
 			max-height: 100%;
 			display: flex;
 			
+			@include responsive('phone') {
+				width: 100%;
+				height: 100%;
+			}
+
 			img {
 				max-width: 100%;
 				height: auto;
 				object-fit: cover;
+				@include responsive('phone') {
+					width: 100%;
+					height: 100%;
+				}
 			}
 		}
 	}
@@ -89,8 +136,36 @@ main#homepage {
 	position: relative;
 	// border: 1px dashed red;
 
+	@include responsive('smallDesktop') {
+		width: 85%;
+	}
+	@include responsive('phone') {
+		width: 100%;
+	}
+
 	h2 {
 		width: 50vh;
+		@include responsive('desktop') {
+			width: 40vh;
+		}
+		@include responsive('smallDesktop') {
+			font-size: 24px;
+		}
+		@include responsive('phone') {
+			width: 20vh;
+			font-size: 20px;
+			margin: 4% 8%;
+		}
+	}
+
+	h3 {
+		@include responsive('smallDesktop') {
+			font-size: 18px;
+		}
+		@include responsive('phone') {
+			font-size: 16px;
+			margin: 4% 8%;
+		}
 	}
 
 	#productsGeneralContainer {
@@ -103,6 +178,14 @@ main#homepage {
 		align-items: center;
 		// border: 1px dashed blue;
 
+		@include responsive('desktop') {
+			margin: 5% auto 10%;
+		}
+		@include responsive('phone') {
+			margin: 0 auto 15%;
+		}
+		
+
 		.productContainer {
 			width: 250px;
 			height: 325px;
@@ -110,7 +193,17 @@ main#homepage {
 			border-radius: 15%;
 			box-shadow: 0 1px 5px black;
 			&:not(:last-child) {
-				margin-bottom: 3%;
+				margin-bottom: 4%;
+				@include responsive('phone') {
+					margin: 0 auto 15%;
+				}
+			}
+			@include responsive('smallDesktop') {
+				width: 200px;
+				height: 300px;
+			}
+			@include responsive('phone') {
+				margin: 0 auto 15%;
 			}
 			// border: 1px solid green;
 
@@ -158,14 +251,24 @@ main#homepage {
 					font-size: 20px;
 					border-radius: 0 0 15% 15%;
 					// border: 1px solid blue;
+
+					@include responsive('smallDesktop') {
+						font-size: 17px;
+					}
 	
 					#home__name {
 						margin: 20px 0 0 0;
+						@include responsive('smallDesktop') {
+							margin-top: 10px;
+						}
 					}
 	
 					#home__price {
 						font-weight: bold;
 						margin: 10px 0 0 0;
+						@include responsive('smallDesktop') {
+							margin-top: 5px;
+						}
 					}
 				}
 			}
