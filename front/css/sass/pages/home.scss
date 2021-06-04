@@ -144,17 +144,16 @@ main#homepage {
 	}
 
 	h2 {
-		width: 50vh;
-		@include responsive('desktop') {
-			width: 40vh;
-		}
+		width: 100%;
+		//border: 1px solid black;
+
 		@include responsive('smallDesktop') {
 			font-size: 24px;
 		}
 		@include responsive('phone') {
-			width: 20vh;
+			width: 90%;
 			font-size: 20px;
-			margin: 4% 8%;
+			margin: 4% auto;
 		}
 	}
 
@@ -163,8 +162,9 @@ main#homepage {
 			font-size: 18px;
 		}
 		@include responsive('phone') {
+			width: 90%;
 			font-size: 16px;
-			margin: 4% 8%;
+			margin: 4% auto 8%;
 		}
 	}
 

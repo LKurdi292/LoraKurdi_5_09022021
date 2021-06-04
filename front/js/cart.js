@@ -355,11 +355,11 @@ function checkEmail(value) {
 }
 
 /********** Fonction qui redonne les couleurs initiale au champ ***************/
-function setInitialColor(element) {
-	element.style.backgroundColor = "none";
-	element.style.borderColor = "#9b59b6";
-	// element.style.color = "#ccc";
-}
+// function setInitialColor(element) {
+// 	element.style.backgroundColor = "none";
+// 	element.style.borderColor = "#9b59b6";
+// 	// element.style.color = "#ccc";
+// }
 
 
 
